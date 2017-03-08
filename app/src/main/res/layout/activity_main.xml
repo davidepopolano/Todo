@@ -5,9 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroud"
-
-
     tools:context="com.elis.ltm.todo.activities.MainActivity">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/tool"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tool"
+        android:id="@+id/rv"/>
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -18,13 +25,5 @@
         android:layout_margin="@dimen/activity_vertical_margin"
         android:elevation="@dimen/cardview_default_elevation"
         android:src="@drawable/plus"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/rv"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-    </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

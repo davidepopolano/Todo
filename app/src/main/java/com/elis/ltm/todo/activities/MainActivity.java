@@ -5,10 +5,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LinearLayoutManager linearLayoutManager;
     NotaAdapter adapter;
     FloatingActionButton fab;
+    Toolbar toolbar;
+//    public ActionMode pippo;
 //    Log log;
 
     @Override
@@ -43,10 +49,52 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         recyclerView.setLayoutManager(linearLayoutManager);
         adapter.setDataset(databasehandler.getAllNotes());
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
         registerForContextMenu(recyclerView);
     }
+
+//    public ActionMode.Callback callBack = new ActionMode.Callback() {
+//        @Override
+//        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//            MenuInflater menuInflater = mode.getMenuInflater();
+//            menuInflater.inflate(R.menu.menu_toolbar, menu);
+//            return true;
+//        }
+//
+//        @Override
+//        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+//            return false;
+//        }
+//
+//        @Override
+//        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+//            int posizione;
+//            switch(item.getItemId()){
+//                case R.id.delete:
+//                    posizione = adapter.getPosition();
+//                    Nota nota_rmv = adapter.getNota(posizione);
+//                    long is = databasehandler.deleteNote(nota_rmv);
+//                    System.out.println(is);
+//                    adapter.removeNota(posizione);
+//                    return true;
+//                case R.id.edit:
+//                    posizione = adapter.getPosition();
+//                    Nota nota = adapter.getNota(posizione);
+//                    showAlerDialogEdit(nota.getTitle(), nota.getBody(), nota.getExpiryDate(), nota.isStatus());
+//                    return true;
+//            }
+//            return false;
+//        }
+//
+//        @Override
+//        public void onDestroyActionMode(ActionMode mode) {
+//            pippo = null;
+//
+//        }
+//    };
 
     @Override
     public void onClick(View v) {

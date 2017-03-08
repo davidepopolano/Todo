@@ -79,7 +79,7 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaVH> {
     }
 
 
-    public class NotaVH extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener{
+    public class NotaVH extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener {
         TextView title, body, date, creationDate;
         ImageView star;
 
@@ -92,9 +92,9 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaVH> {
             creationDate = (TextView) itemView.findViewById(R.id.creation_date_tv);
             star = (ImageView) itemView.findViewById(R.id.star);
             itemView.setOnCreateContextMenuListener(this);
+//            itemView.setOnLongClickListener(this);
 
         }
-
         @Override
         public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
             MainActivity activity = (MainActivity) v.getContext();
@@ -103,5 +103,13 @@ public class NotaAdapter extends RecyclerView.Adapter<NotaAdapter.NotaVH> {
             position = getAdapterPosition();
         }
 
+//        @Override
+//        public boolean onLongClick(View v) {
+//            MainActivity  activity = (MainActivity) v.getContext();
+//            activity.pippo = activity.startSupportActionMode(activity.callBack);
+//            position = getAdapterPosition();
+//            v.setSelected(true);
+//            return true;
+//        }
     }
 }
